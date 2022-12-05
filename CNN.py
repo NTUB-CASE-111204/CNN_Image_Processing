@@ -124,7 +124,7 @@ plt.show()
 #%%
 '存模型'
 from keras.models import load_model
-model.save("10datas_model(fail5)")
+model.save("10datas_model(fail5).h5")
 #%%
 '讀模型'
 from keras.models import load_model
