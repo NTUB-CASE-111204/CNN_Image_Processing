@@ -14,7 +14,7 @@ from keras.layers import MaxPooling2D
 from keras.optimizers import SGD, Adam
 #%%
 '定義子資料夾名稱&對應的數字'
-class_names = ['LUSH','DEGUSTER','Kosmea','Purely Life','Aroma Bella','ARUBLU','Ethique','Ardell','LHAMI','DEEPURE','Burt\'s Bees']
+class_names = ['LUSH','DEGUSTER','Kosmea','Purely Life','Aroma Bella','ARUBLU','Ethique','Ardell','LHAMI','DEEPURE','Burt\'s Bees','Aesop']
 class_names_label = {class_name:i for i, class_name in enumerate(class_names)}
 
 nb_classes = len(class_names)
@@ -82,7 +82,7 @@ model = Sequential([
     Dropout(0.2),
     Flatten(),
     Dropout(0.5),
-    Dense(11, activation='softmax') #輸出層，分類用softmax，多少組照片就用多少的數字
+    Dense(12, activation='softmax') #輸出層，分類用softmax，多少組照片就用多少的數字
 ])
 model.compile(optimizer = 'adam', #SGD(lr=0.1)
               loss = 'sparse_categorical_crossentropy',
@@ -91,7 +91,7 @@ model.compile(optimizer = 'adam', #SGD(lr=0.1)
 history = model.fit(train_images, train_labels, 
                     #validation_data=(test_images, test_labels),
                     #verbose=2,callbacks=[earlyStop],
-                    batch_size=128, epochs=200)
+                    batch_size=128, epochs=300)
 #%%
 '模型概況'
 plt.title('train_loss')
@@ -125,7 +125,7 @@ plt.show()
 #%%
 '存模型'
 from keras.models import load_model
-model.save("10datas_model(11Brand&200).h5")
+model.save("12datas_model(300).h5")
 #%%
 '''
 '讀模型'

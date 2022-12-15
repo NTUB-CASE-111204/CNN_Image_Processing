@@ -13,7 +13,7 @@ from keras.layers import Conv2D
 from keras.layers import MaxPooling2D
 from keras.optimizers import SGD, Adam
 '定義子資料夾名稱&對應的數字'
-class_names = ['LUSH','DEGUSTER 慢享','Kosmea','純粹森活','Aroma Bella','ARUBLU','Ethique','Ardell','LHAMI','DEEPURE淨森林','Burt’s Bees (Clorox)']
+class_names = ['LUSH','DEGUSTER 慢享','Kosmea','純粹森活','Aroma Bella','ARUBLU','Ethique','Ardell','LHAMI','DEEPURE淨森林','Burt’s Bees (Clorox)','Aesop']
 class_names_label = {class_name:i for i, class_name in enumerate(class_names)}
 
 nb_classes = len(class_names)
@@ -21,7 +21,7 @@ nb_classes = len(class_names)
 IMAGE_SIZE = (64, 64)
 '讀模型'
 from keras.models import load_model
-model = load_model('10datas_model(11Brand&200).h5')
+model = load_model('12datas_model(300).h5')
 
 from keras.preprocessing import image
 import matplotlib.pyplot as plt   
