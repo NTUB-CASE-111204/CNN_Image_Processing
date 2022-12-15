@@ -13,7 +13,7 @@ from keras.layers import Conv2D
 from keras.layers import MaxPooling2D
 from keras.optimizers import SGD, Adam
 '定義子資料夾名稱&對應的數字'
-class_names = ['LUSH','DEGUSTER 慢享','Kosmea','純粹森活','Aroma Bella','ARUBLU','Ethique','Ardell','LHAMI','DEEPURE淨森林']
+class_names = ['LUSH','DEGUSTER 慢享','Kosmea','純粹森活','Aroma Bella','ARUBLU','Ethique','Ardell','LHAMI','DEEPURE淨森林','Burt\'s Bees']
 class_names_label = {class_name:i for i, class_name in enumerate(class_names)}
 
 nb_classes = len(class_names)
@@ -21,13 +21,13 @@ nb_classes = len(class_names)
 IMAGE_SIZE = (64, 64)
 '讀模型'
 from keras.models import load_model
-model = load_model('10datas_model(200&changeTwoBrand)')
+model = load_model('10datas_model(11Brand&200).h5')
 
 from keras.preprocessing import image
 import matplotlib.pyplot as plt   
 import numpy as np
 import tensorflow as tf
-picPath = '../CNN/seg_test/LUSH/'+'image3.jpg'
+picPath = '../CNN/seg_train/DEEPURE/'+'000001_1628076679.jpg'
 IMAGE_PATH=picPath #輸入圖片
 img=tf.keras.preprocessing.image.load_img(IMAGE_PATH,target_size=(64,64))#跟建模時的input_shape需相同
 img=tf.keras.preprocessing.image.img_to_array(img)

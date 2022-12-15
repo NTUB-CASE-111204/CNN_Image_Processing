@@ -14,7 +14,7 @@ from keras.layers import MaxPooling2D
 from keras.optimizers import SGD, Adam
 #%%
 '定義子資料夾名稱&對應的數字'
-class_names = ['LUSH','DEGUSTER','Kosmea','Purely Life','Aroma Bella','ARUBLU','Ethique','Ardell','LHAMI','DEEPURE']
+class_names = ['LUSH','DEGUSTER','Kosmea','Purely Life','Aroma Bella','ARUBLU','Ethique','Ardell','LHAMI','DEEPURE','Burt\'s Bees']
 class_names_label = {class_name:i for i, class_name in enumerate(class_names)}
 
 nb_classes = len(class_names)
@@ -82,7 +82,7 @@ model = Sequential([
     Dropout(0.2),
     Flatten(),
     Dropout(0.5),
-    Dense(10, activation='softmax') #輸出層，分類用softmax，多少組照片就用多少的數字
+    Dense(11, activation='softmax') #輸出層，分類用softmax，多少組照片就用多少的數字
 ])
 model.compile(optimizer = 'adam', #SGD(lr=0.1)
               loss = 'sparse_categorical_crossentropy',
@@ -98,6 +98,7 @@ plt.title('train_loss')
 plt.ylabel('loss')
 plt.xlabel('Epoch')
 plt.plot(history.history["loss"])
+plt.show()
 #scores = model.evaluate(test_images, test_labels)  
 #print('test:',result[1])
 #%%
@@ -124,8 +125,9 @@ plt.show()
 #%%
 '存模型'
 from keras.models import load_model
-model.save("10datas_model(fail5).h5")
+model.save("10datas_model(11Brand&200).h5")
 #%%
+'''
 '讀模型'
 from keras.models import load_model
 model = load_model('100%_model')
@@ -144,7 +146,7 @@ print(predictions)
 print(class_names[np.argmax(predictions)])
 ans = class_names[np.argmax(predictions)]
 print(ans)
-'''
+
 #%%
 from keras.applications.xception import xception,decode_predictions
 from keras.preprocessing import image
